@@ -27,7 +27,6 @@ public class steps {
     @Когда("^находим разность двух чисел$")
     public void minus(){
         mines = a - b;
-        System.out.println("(minus) Разница чисел " + a + " и " + b + " = " + mines);
     }
 
     @И("^находим произведение двух чисел$")
