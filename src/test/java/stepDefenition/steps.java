@@ -2,6 +2,7 @@ package stepDefenition;
 
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
+import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 
 public class steps {
@@ -23,7 +24,7 @@ public class steps {
         sum = a + b;
     }
 
-    @И("^находим разность двух чисел$")
+    @Когда("^находим разность двух чисел$")
     public void minus(){
         mines = a - b;
     }
