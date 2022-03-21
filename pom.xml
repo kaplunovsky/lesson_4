@@ -8,6 +8,7 @@
     <artifactId>task_4</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
         <!-- Java 8 -->
         <java.version>1.8</java.version>
@@ -17,6 +18,8 @@
         <compiler.version>1.8</compiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <allure.version>2.13.2</allure.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
         <selenide.version>5.18.0</selenide.version>
         <junit.platform.version>1.7.2</junit.platform.version>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
@@ -31,8 +34,6 @@
         <sshd-core.version>2.7.0</sshd-core.version>
         <allureJunit5.version>2.14.0</allureJunit5.version>
         <cucumber.6.jvm.version>2.13.6</cucumber.6.jvm.version>
-        <allure.version>2.13.2</allure.version>
-        <allure-maven.version>2.10.0</allure-maven.version>
         <json.version>20210307</json.version>
 
         <parallelCount>1</parallelCount>
@@ -40,6 +41,22 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>${allureJunit5.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sshd</groupId>
+            <artifactId>sshd-core</artifactId>
+            <version>${sshd-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -88,12 +105,6 @@
             <version>${cucumber.6.jvm.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit5</artifactId>
-            <version>${allureJunit5.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
@@ -113,20 +124,32 @@
             <artifactId>json</artifactId>
             <version>${json.version}</version>
         </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>log4j</groupId>-->
+        <!--            <artifactId>log4j</artifactId>-->
+        <!--            <version>${log4j.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4jCore.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.sshd</groupId>
-            <artifactId>sshd-core</artifactId>
-            <version>${sshd-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jcraft</groupId>
-            <artifactId>jsch</artifactId>
-            <version>${jsch.version}</version>
+            <groupId> org.apache.cassandra</groupId>
+            <artifactId>cassandra-all</artifactId>
+            <version>0.8.1</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+
         </dependency>
     </dependencies>
 
@@ -177,5 +200,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
